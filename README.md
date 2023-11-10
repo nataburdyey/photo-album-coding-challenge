@@ -15,6 +15,9 @@ This is a web application that allows users to find and assemble a collection of
 - [x] Indicate empty/loading/error states.
 - [x] Customize your page with light/dark theme options.
 - [x] The App was deployed to Netlify.
+- [x] Implemented unit tests using React Testing Library to verify user interactions.
+
+![Screenshot](src/assets/rtl-test.png)
 
 ## Implementations Details
 - `React-infinite-scroll-component` was used to implement infinite scrolling, which provides a seamless and user-friendly experience for loading large amounts of data and improve app performance.

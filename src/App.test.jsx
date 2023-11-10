@@ -1,13 +1,30 @@
 import { describe, expect, it } from 'vitest';
-import App from './App';
-import { render, screen, userEvent } from '../test-utils';
+import { QueryClientProvider, QueryClient } from 'react-query';
 
-// ToDo - render app and add more tests
+import App from './App';
+import { AppProvider } from './context';
+import { render, screen} from '../test-utils';
+
+// ToDo: add more tests
 describe('Simple working test', () => {
   it('the title is visible', () => {
-    render(<App />);
-    const welcomeText = screen.getByText('My Photo Album');
-    screen.debug(welcomeText);
+    const queryClient = new QueryClient();
+    window.matchMedia = vi.fn().mockImplementation(() => {
+      return {
+        matches: false,
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+      };
+    });
+
+    render(
+      <AppProvider>
+        <QueryClientProvider client={queryClient}>
+          <App />
+        </QueryClientProvider>
+      </AppProvider>
+    );
+
     expect(screen.getByText('My Photo Album')).toBeInTheDocument();
   });
 });
