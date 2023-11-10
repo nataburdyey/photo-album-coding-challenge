@@ -18,7 +18,7 @@ function Album() {
 
   return (
     <section ref={drop} className={`${isOverCurrent ? 'border-gray-500 border-2' : ''} album bg-cyan-400 p-5`}>
-      <h4 className='mb-4 text-gray-800'>Album Generator</h4>
+      <h5 className='mb-4 text-gray-800'>Album Generator</h5>
       <div className='columns-2 gap-2 flex'>
         <div className='w-1/2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
           {items.map((photo) => (
