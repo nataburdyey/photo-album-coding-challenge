@@ -4,8 +4,6 @@ import { useWindowSize } from 'react-use';
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { TouchBackend } from 'react-dnd-touch-backend'
 import { Gallery, Album } from '../components';
-import { useGlobalContext } from '../context';
-
 
 const ImageContainer = () => {
   const { width } = useWindowSize();

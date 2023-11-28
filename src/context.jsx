@@ -20,7 +20,6 @@ const initialState = {
   loading: false,
   photos: [],
   album: new Map(),
-  totalAmount: 0,
 };
 
 const getInitialDarkMode = () => {

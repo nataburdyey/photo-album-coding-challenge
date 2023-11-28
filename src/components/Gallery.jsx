@@ -21,6 +21,7 @@ const fetchPhotos = async ({ pageParam = 0 }) => {
 const Gallery = () => {
   const { setPhotos, photos, album, albumRemoveItem } = useGlobalContext();
 
+  // Dragging the photo back to the gallery removes it from the album
   const [{ isOverCurrent }, drop] = useDrop({
     accept: 'PHOTO',
     drop: (photo) => albumRemoveItem(photo.id),
@@ -29,7 +30,7 @@ const Gallery = () => {
     })
   });
 
-  const { fetchNextPage, hasNextPage, isError, status, } = useInfiniteQuery('photos', fetchPhotos, {
+  const { fetchNextPage, hasNextPage, isError, status } = useInfiniteQuery('photos', fetchPhotos, {
     onSettled: (data) => {
       const photos = data?.pages.reduce((acc, page) => [...acc, ...page.photos], []) || [];
       setPhotos(photos);

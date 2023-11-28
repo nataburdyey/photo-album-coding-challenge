@@ -1,6 +1,10 @@
 # My Photo Album React App
 
-This is a web application that allows users to find and assemble a collection of stock image photographs into an album in a fast and intuitive way. Users can then save, print, or download their album for future use.
+This is a web application that allows users to find and assemble a collection of stock image photographs into an album in a fast and intuitive way.
+
+## To Run Local Build
+`npm run dev`
+`npx tailwindcss -i ./src/index.css -o ./dist/output.css --watch`
 
 ## Key Functionality
 - [x] Display gallery of stock photos from the Sling Academy API.
@@ -23,7 +27,6 @@ This is a web application that allows users to find and assemble a collection of
 - `React-infinite-scroll-component` was used to implement infinite scrolling, which provides a seamless and user-friendly experience for loading large amounts of data and improve app performance.
 - `React Query` was used to efficiently manage API requests and data fetching, which improved the performance of the application.
 - `TailwindCSS` was used to rapidly build and customize responsive UI components, which provided ready-made CSS classes for styling and layout, allowing for faster development compared to writing custom CSS.
-- `Axios`, a popular HTTP client library, was used to make API calls.
 - `React Icons` was used to incorporate icons for changing themes, which enhanced the user interface and made it more visually appealing.
 - `React Hooks` were used to manage state, perform side effects, and access global context, which simplified the codebase and made it more maintainable.
 - - `useState`
