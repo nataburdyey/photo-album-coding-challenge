@@ -17,7 +17,6 @@ import {
 const AppContext = createContext();
 
 const initialState = {
-  loading: false,
   photos: [],
   album: new Map(),
 };
