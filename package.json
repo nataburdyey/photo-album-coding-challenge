@@ -4,9 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev:vite": "vite",
+    "dev:tailwind": "tailwindcss -i ./src/index.css -o ./dist/output.css --watch",
+    "dev": "run-p -n dev:**",
     "build:tailwind": "tailwindcss -i ./src/index.css -o ./dist/output.css",
-    "build": "npm run build:tailwind; vite build",
+    "build:vite": "vite build",
+    "build": "run-s -n build:**",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "vitest",
@@ -20,6 +23,8 @@
   },
   "dependencies": {
     "axios": "^1.6.1",
+    "file-saver": "^2.0.5",
+    "jszip": "^3.10.1",
     "react": "^18.2.0",
     "react-beautiful-dnd": "^13.1.1",
     "react-dnd": "^16.0.1",
@@ -29,6 +34,7 @@
     "react-icons": "^4.11.0",
     "react-infinite-scroll-component": "^6.1.0",
     "react-query": "^3.39.3",
+    "react-to-print": "^2.14.15",
     "react-use": "^17.4.0"
   },
   "devDependencies": {
@@ -45,6 +51,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "jsdom": "^22.1.0",
+    "npm-run-all": "^4.1.5",
     "tailwindcss": "^3.3.5",
     "vite": "^4.4.5",
     "vitest": "^0.34.6"

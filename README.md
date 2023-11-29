@@ -4,7 +4,6 @@ This is a web application that allows users to find and assemble a collection of
 
 ## To Run Local Build
 `npm run dev`
-`npx tailwindcss -i ./src/index.css -o ./dist/output.css --watch`
 
 ## Key Functionality
 - [x] Display gallery of stock photos from the Sling Academy API.

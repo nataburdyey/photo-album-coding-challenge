@@ -83,7 +83,7 @@ const Gallery = () => {
         loader={<h4>Loaded: {loaded}. Loading more...</h4>}
       >
         {photos.map((photo) => (
-          <Photo key={photo.id} photo={photo} added={album.has(photo.id)} className="" />
+          <Photo key={photo.id} photo={photo} added={album.has(photo.id)} />
         ))}
       </InfiniteScroll>
     </section>
