@@ -5,6 +5,7 @@ const Photo = ({ photo, added, className, canDelete, onDelete }) => {
         item: photo,
         type: 'PHOTO',
         dropEffect: 'copy',
+        canDrag: !added,
         collect: (monitor) => ({
             isDragging: monitor.isDragging(),
         }),
