@@ -22,22 +22,41 @@ function Album() {
 
   const items = [...album.values()];
 
-  const handleDownload = () => {
+  const imgToBlob = async (src) => new Promise((resolve, reject) => {
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.addEventListener("load", () => {
+      const canvas = document.createElement("canvas");
+      const context = canvas.getContext("2d");
+      canvas.width = img.width;
+      canvas.height = img.height;
+      context.drawImage(img, 0, 0);
+      document.body.appendChild(canvas);
+      canvas.toBlob((blob) => {
+        img.remove();
+        document.body.removeChild(canvas);
+        resolve(blob)
+      }, "image/png");
+    }, false);
+    img.addEventListener("error", reject);
+    img.src = `${src}?random=${Math.random()}`;
+  })
+
+  const handleDownload = async () => {
     const zip = new JSZip();
-    items.forEach((photo) => {
-      zip.file(photo.title, photo.url);
-    });
-    zip.generateAsync({ type: 'blob' }).then(function (content) {
-      FileSaver.saveAs(content, 'download.zip');
-    });
+    for (const photo of items) {
+      const blob = await imgToBlob(photo.url);
+      zip.file(`${photo.title}.png`, blob);
+    }
+    const content = await zip.generateAsync({ type: 'blob' })
+    FileSaver.saveAs(content, 'download.zip');
   };
 
   return (
     <section
       ref={drop}
-      className={`${
-        isOverCurrent ? 'border-gray-500 border-2' : ''
-      } album bg-cyan-400 p-5`}
+      className={`${isOverCurrent ? 'border-gray-500 border-2' : ''
+        } album bg-cyan-400 p-5`}
     >
       <h5 className='mb-4 text-gray-800'>Album Generator</h5>
       <h6>
@@ -71,7 +90,7 @@ function Album() {
         </div>
       </div>
       {items.length > 0 && (
-        <div>
+        <div className='mt-5'>
           <button
             className='bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded-md m-1'
             type='button'
