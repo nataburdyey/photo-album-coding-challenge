@@ -34,6 +34,7 @@ This is a web application that allows users to find and assemble a collection of
 - - `useReducer`
 - The `react-use` library was utilized for its collection of reusable React hooks, providing capabilities like device detection.
 - The `react-dnd` package along with `react-dnd-html5-backend` and `react-dnd-touch-backend` were implemented to enable drag and drop functionality.
+- `Slingacademy API` Sample Photos – [Free Fake REST API for Practice](https://www.slingacademy.com/article/sample-photos-free-fake-rest-api-for-practice/). 
 
 ## SEO Optimization
 - Semantic HTML and appropriate heading tags were used to help search engines understand the organization of the content.
