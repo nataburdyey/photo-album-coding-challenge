@@ -2,6 +2,8 @@
 
 This is a web application that allows users to find and assemble a collection of stock image photographs into an album in a fast and intuitive way.
 
+![Screenshot](public/photo-album.png)
+
 ## To Run Local Build
 `npm run dev`
 
